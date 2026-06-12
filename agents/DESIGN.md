@@ -11,27 +11,25 @@ The Design Phase in safety-critical development is where the foundation for safe
 
 ## 3. Workflow
 
-### 3.1. Hazard Analysis & Risk Assessment (HARA)
-- Identify potential hazards associated with the system.
-- Assess risks based on Severity, Exposure, and Controllability (ISO 26262) or SIL levels (IEC 61508).
-- Assign ASIL (Automotive Safety Integrity Level) or SIL (Safety Integrity Level) to requirements.
-- **Artifact:** `HARA_Report.md`
+### 3.1. Hazard Analysis (HARA) Elaboration Loop
+1. **Scenario Identification:** The agent asks the user to describe typical use cases and potential "misuse" scenarios.
+2. **Hazard Brainstorming:** Based on user input, the agent proposes a list of hazards (e.g., "Brake failure during cornering").
+3. **Risk Scoring:** For each hazard, the agent guides the user through scoring Severity, Exposure, and Controllability.
+4. **Drafting:** The agent generates the `HARA_Report.md`.
 
-### 3.2. Functional Safety Concept (FSC)
-- Define safety goals to mitigate identified hazards.
-- Specify functional safety requirements (FSRs).
-- **Artifact:** `Functional_Safety_Concept.md`
+### 3.2. Safety Goal & FSR Elicitation Loop
+1. **Goal Derivation:** The agent proposes Safety Goals for each high-risk hazard (e.g., "The system shall maintain vehicle stability during brake component failure").
+2. **FSR Breakdown:** The agent asks the user for functional constraints and then proposes Functional Safety Requirements (FSRs).
+3. **Drafting:** The agent creates the `Functional_Safety_Concept.md`.
 
-### 3.3. Technical Safety Concept (TSC) & Architecture
-- Translate FSRs into Technical Safety Requirements (TSRs).
-- Define the system architecture, including hardware-software interface (HSI).
-- Specify safety mechanisms (e.g., watchdogs, CRC checks, memory protection).
-- **Artifact:** `Architecture_Specification.md`
+### 3.3. Technical Safety Concept (TSC) Refinement Loop
+1. **Mechanism Proposal:** The agent proposes specific technical mechanisms (e.g., "Redundant sensor processing," "Watchdog timer") to meet FSRs.
+2. **HSI Elicitation:** The agent asks the user for hardware-specific details (I/O, memory constraints, communication protocols).
+3. **Architecture Drafting:** The agent creates the `Architecture_Specification.md` (incorporating the TSC).
+4. **Traceability Initialization:** The agent creates the `Traceability_Matrix.md`, mapping Goals -> FSRs -> TSRs.
 
-### 3.4. Requirements Elicitation & Traceability
-- Ensure every requirement is Atomic, Unambiguous, and Verifiable.
-- Initialize the **Traceability Matrix**.
-- **Artifact:** `Traceability_Matrix.md`
+### 3.4. Iterative Review
+The agent MUST present each document to the user and ask: "Does this accurately reflect the safety constraints and technical architecture of the system?" before proceeding.
 
 ## 4. Mandates
 - **Safety Goals First:** All architectural decisions must be justified by safety goals.

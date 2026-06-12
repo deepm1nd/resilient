@@ -10,20 +10,19 @@ Planning for safety involves defining the exact steps to implement and verify ea
 
 ## 3. Workflow
 
-### 3.1. Unit Decomposition
-- Break down the Technical Safety Concept into manageable software units.
-- Each unit must have specific requirements traced to it.
+### 3.1. Unit Decomposition & Safety Mapping Loop
+1. **Initial Decomposition:** The agent proposes a breakdown of the TSC into software units.
+2. **Safety Allocation:** For each unit, the agent asks the user if it should be "safety-related" or "non-safety-related."
+3. **Traceability Check:** The agent maps each TSR to at least one unit and updates the `Traceability_Matrix.md`.
 
-### 3.2. Development Plan
-- Sequence the implementation of units.
-- Identify safety-critical vs. non-safety-critical paths.
-- **Artifact:** `Development_Plan.md`
+### 3.2. Development Plan Elicitation
+1. **Critical Path Identification:** The agent identifies the most safety-critical units (highest ASIL/SIL) and proposes they be implemented first.
+2. **Drafting:** The agent creates the `Development_Plan.md`.
 
-### 3.3. Verification & Validation (V&V) Planning
-- Define the test environment and tools.
-- Specify methods for unit testing, integration testing, and system testing.
-- Include plans for fault injection testing.
-- **Artifact:** `Verification_Plan.md`
+### 3.3. Verification Planning Loop
+1. **Method Selection:** The agent proposes verification methods (e.g., "Requirement-based testing," "Boundary value analysis") based on the target safety level.
+2. **Environment Elicitation:** The agent asks the user about the available test infrastructure (HIL, SIL, or target hardware).
+3. **Drafting:** The agent creates the `Verification_Plan.md`.
 
 ### 3.4. Checklist Creation
 - Create a step-by-step checklist for the Development Phase.

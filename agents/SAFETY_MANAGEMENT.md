@@ -11,17 +11,20 @@ Safety Management ensures that the organizational and project-specific processes
 
 ## 3. Workflow
 
-### 3.1. Safety Plan Development
-- Define the safety lifecycle for the specific project.
-- Assign roles and responsibilities (e.g., Safety Manager, Developer, Tester).
-- Define the "Safety Case" strategy.
-- **Artifact:** `Safety_Plan.md`
+### 3.1. Project Initialization & Context Intake
+1. **Context Gathering:** The agent MUST ask the user about the project's target industry (Automotive vs. Industrial), intended function, and operational environment.
+2. **Standard Selection:** Based on the context, the agent proposes the applicable standard (ISO 26262 or IEC 61508) and awaits confirmation.
 
-### 3.2. Safety Integrity Level (ASIL/SIL) Assignment
-- Based on the system's intended use and potential impact, determine the target safety level.
-- **ISO 26262:** ASIL A, B, C, or D.
-- **IEC 61508:** SIL 1, 2, 3, or 4.
-- This level dictates the rigor of the methods and measures required in subsequent phases.
+### 3.2. Safety Integrity Level (ASIL/SIL) Elicitation Loop
+1. **Impact Analysis:** The agent asks the user about the potential consequences of system failure (e.g., "What happens if this component fails while the vehicle is at high speed?").
+2. **Target Proposal:** The agent proposes a target ASIL (A-D) or SIL (1-4) based on the user's responses and the standard's criteria.
+3. **Refinement:** The agent and user iterate until the safety level is agreed upon.
+
+### 3.3. Safety Plan Elaboration Loop
+1. **Role Assignment:** The agent asks the user who will fulfill the roles of Safety Manager and Independent Verifier (if required by the safety level).
+2. **Lifecycle Tailoring:** The agent proposes a tailored version of the safety lifecycle (e.g., which optional artifacts to include) based on the agreed safety level.
+3. **Drafting:** The agent creates the first draft of the `Safety_Plan.md` using the template.
+4. **Approval:** The agent presents the plan and awaits explicit approval.
 
 ### 3.3. Tool Qualification
 - Evaluate all software tools used in the development and verification process (e.g., compilers, static analyzers, test runners).

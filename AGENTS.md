@@ -36,6 +36,12 @@ This document defines the core mandates and operational protocols for the AI age
 
 ## 3. Operational Protocol
 
+### 3.0. Session Bootstrap: Concept Intake
+Every new session starts with the agent eliciting the **Project Concept**.
+1. The agent MUST ask: "What is the core function of the system we are building, and what is its intended operational environment?"
+2. The agent MUST then ask: "Are there any known safety constraints or regulatory requirements (e.g., ISO 26262, IEC 61508) we must adhere to?"
+3. Based on the responses, the agent MUST propose the initial entry point (usually `SAFETY_MANAGEMENT.md`).
+
 ### 3.1. Phase Transitions
 The agent must request explicit approval to move from one phase to the next (e.g., "Design Phase is complete. Requesting approval to move to Planning Phase").
 
